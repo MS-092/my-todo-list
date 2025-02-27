@@ -1,0 +1,91 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.TodoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Todo {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Todo p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.Todo .priority-urgent {
+  color: red;
+}
+
+.Todo .priority-medium {
+  color: orange;
+}
+
+.Todo .priority-low {
+  color: green;
+}
+
+.Todo .checkmark {
+  margin-left: 1rem;
+}
+
+.Todo .subtask-input {
+  width: calc(100% - 40px);
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.Todo .subtask-btn {
+  padding: 0.5rem;
+}
+
+.SubTaskList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.SubTaskList li {
+  background: #e9e9e9;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.TodoForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.TodoForm .todo-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.TodoForm .priority-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.TodoForm .todo-btn {
+  padding: 0.5rem 1rem;
+}
