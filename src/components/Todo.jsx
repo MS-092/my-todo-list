@@ -9,7 +9,7 @@ export const Todo = ({ task, toggleComplete, deleteToDo, editToDo, openTask }) =
                 {task.task} - <span className={`priority-${task.priority}`}>{task.priority}</span>
             </p>
 
-            <div>
+            <div className="bg-gray-100 rounded-lg p-4 my-4 w-full max-w-xl shadow cursor-pointer">
                 <input
                     type="checkbox"
                     checked={task.completed}
