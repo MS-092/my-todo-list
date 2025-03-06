@@ -1,11 +1,26 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const Todo = ({ task, toggleComplete, deleteToDo, editToDo, openTask }) => {
+    const handleToggleComplete = (e) => {
+        e.stopPropagation();
+        toggleComplete(task.id);
+    };
+
+    const handleEditToDo = (e) => {
+        e.stopPropagation();
+        editToDo(task.id);
+    };
+
+    const handleDeleteToDo = (e) => {
+        e.stopPropagation();
+        deleteToDo(task.id);
+    };
+
     return (
-        <div className="Todo" key={task.id} onClick={() => openTask(task.id)}>
-            <p className={`${task.completed ? 'completed' : ""}`}>
+        <div className="Todo" key={task.id}>
+            <p className={`${task.completed ? 'completed' : ""}`} onClick={() => openTask(task.id)}>
                 {task.task} - <span className={`priority-${task.priority}`}>{task.priority}</span>
             </p>
 
@@ -13,29 +28,20 @@ export const Todo = ({ task, toggleComplete, deleteToDo, editToDo, openTask }) =
                 <input
                     type="checkbox"
                     checked={task.completed}
-                    onChange={(e) => {
-                        e.stopPropagation();
-                        toggleComplete(task.id);
-                    }}
+                    onChange={handleToggleComplete}
                 />
                 <span className="checkmark"></span>
 
                 <FontAwesomeIcon
                     icon={faPenToSquare}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        editToDo(task.id);
-                    }}
+                    onClick={handleEditToDo}
                 />
 
                 <FontAwesomeIcon
                     icon={faTrash}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        deleteToDo(task.id);
-                    }}
+                    onClick={handleDeleteToDo}
                 />
             </div>
         </div>
-    )
-}
+    );
+};

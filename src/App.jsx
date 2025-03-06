@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import { TodoWrapper } from './components/TodoWrapper'
-import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { TodoWrapper } from './components/TodoWrapper';
+import Landing from './components/Landing';
+import Profile from './components/Profile';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-            <h1>TO DO LIST</h1>
-            <Router>
-                <Routes>
-                    <Route path='/' element={<TodoWrapper />}></Route>
-                </Routes>
-            </Router>
-        </div>
-  )
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/todo" element={<TodoWrapper />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;

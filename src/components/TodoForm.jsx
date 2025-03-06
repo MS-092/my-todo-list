@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export const TodoForm = ({ addToDo }) => {
-    const [value, setValue] = useState("")
-    const [priority, setPriority] = useState("medium")
+    const [value, setValue] = useState("");
+    const [priority, setPriority] = useState("medium");
+    const [error, setError] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
+        if (value.trim() === "") {
+            setError("Task cannot be empty");
+            return;
+        }
         addToDo(value, priority);
         setValue("");
-    }
+        setError("");
+    };
 
     return (
         <form className="TodoForm" onSubmit={handleSubmit}>
@@ -19,6 +25,7 @@ export const TodoForm = ({ addToDo }) => {
                 placeholder="Enter task"
                 onChange={(e) => setValue(e.target.value)}
             />
+            {error && <p className="error-message">{error}</p>}
             <select
                 className="priority-select"
                 value={priority}
@@ -30,5 +37,5 @@ export const TodoForm = ({ addToDo }) => {
             </select>
             <button type="submit" className="todo-btn">Add Task</button>
         </form>
-    )
-}
+    );
+};
