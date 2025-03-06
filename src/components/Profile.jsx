@@ -1,20 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 import myImage from './hand.jpeg';
 import NavBar from './NavBar';
 
 const Profile = () => {
-  const navigate = useNavigate();
-
-  const goToLanding = () => {
-    navigate('/');
-  };
-
-  const goToTodolist = () => {
-    navigate('/todo')
-  };
-
   return (
     <div>
       <NavBar />

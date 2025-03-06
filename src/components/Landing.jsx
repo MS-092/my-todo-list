@@ -5,20 +5,16 @@ import './Landing.css';
 const Landing = () => {
   const navigate = useNavigate();
 
-  const goToTodoList = () => {
-    navigate('/todo');
-  };
-
-  const goToProfile = () => {
-    navigate('/profile');
+  const handleNavigation = (path) => {
+    navigate(path);
   };
 
   return (
     <div className="landing-container">
       <h1>Welcome to the ToDo App</h1>
       <div className="button-container">
-      <button onClick={goToTodoList} className="landing-button">Go to ToDo List</button>
-      <button onClick={goToProfile} className="landing-button">Go to Profile Page</button>
+        <button onClick={() => handleNavigation('/todo')} className="landing-button">Go to ToDo List</button>
+        <button onClick={() => handleNavigation('/profile')} className="landing-button">Go to Profile Page</button>
       </div>
     </div>
   );
