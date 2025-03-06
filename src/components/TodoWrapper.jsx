@@ -76,10 +76,9 @@ export const TodoWrapper = () => {
         <div>
             <NavBar />
             <div className="TodoWrapper">
-                <button onClick={toggleCompletedFilter}>
+                <button onClick={toggleCompletedFilter} className="show-completed-button">
                     {showCompleted ? 'Show Tasks' : 'Show Completed'}
                 </button>
-
 
                 <TodoForm addToDo={addToDo} />
                 {filteredTasks.map((todo) => (
