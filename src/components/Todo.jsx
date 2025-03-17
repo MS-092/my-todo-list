@@ -2,14 +2,20 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export const Todo = ({ task, toggleComplete, deleteToDo, editToDo, openTask }) => {
+export const Todo = ({ task, toggleComplete, deleteToDo, openTaskModal }) => {
   return (
-    <div className="Todo" key={task.id}>
-      <p className={`${task.completed ? 'completed' : ""}`} onClick={() => openTask(task.id)}>
-        {task.task} - <span className={`priority-${task.priority}`}>{task.priority}</span>
-      </p>
+    <div className="Todo">
+      <div className="todo-content" onClick={() => openTaskModal(task)}>
+        <p className={`${task.completed ? 'completed' : ""}`}>
+          {task.task}
+          <span className={`priority-${task.priority}`}> - {task.priority}</span>
+        </p>
+        {/* {task.description && (
+          <p className="todo-description">{task.description}</p>
+        )} */}
+      </div>
 
-      <div className="bg-gray-100 rounded-lg p-4 my-4 w-full max-w-xl shadow cursor-pointer">
+      <div className="todo-actions">
         <input
           type="checkbox"
           checked={task.completed}
@@ -18,13 +24,12 @@ export const Todo = ({ task, toggleComplete, deleteToDo, editToDo, openTask }) =
             toggleComplete(task.id);
           }}
         />
-        <span className="checkmark"></span>
-
+        
         <FontAwesomeIcon
           icon={faPenToSquare}
           onClick={(e) => {
             e.stopPropagation();
-            editToDo(task.id);
+            openTaskModal(task);
           }}
         />
 
